@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { WellbeingEntry } from '../types/WellbeingEntry';
 
-const WellbeingList: React.FC = () => {
-  const [entries, setEntries] = useState<WellbeingEntry[]>([]);
+interface WellbeingListProps {
+  entries: WellbeingEntry[];
+}
 
+const WellbeingList: React.FC<WellbeingListProps> = ({ entries }) => {
   return (
     <div>
       <h2>Team Wellbeing Entries</h2>
@@ -11,9 +13,12 @@ const WellbeingList: React.FC = () => {
         <p>No entries yet</p>
       ) : (
         <ul>
-          {entries.map((entry, index) => (
-            <li key={index}>
+          {entries.map((entry) => (
+            <li key={entry.id}>
               <strong>{entry.name}</strong> - {entry.mood}
+              <div className="entry-date">
+                {new Date(entry.date).toLocaleDateString()}
+              </div>
               {entry.notes && <p>{entry.notes}</p>}
             </li>
           ))}
