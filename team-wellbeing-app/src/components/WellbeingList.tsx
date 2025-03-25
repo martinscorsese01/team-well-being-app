@@ -2,7 +2,15 @@ import React from 'react';
 import { useWellbeing } from '../context/WellbeingContext';
 
 const WellbeingList: React.FC = () => {
-  const { entries } = useWellbeing();
+  const { entries, isLoading, error } = useWellbeing();
+
+  if (isLoading) {
+    return <div className="loading">Loading entries...</div>;
+  }
+
+  if (error) {
+    return <div className="error">Error: {error}</div>;
+  }
 
   return (
     <div>
