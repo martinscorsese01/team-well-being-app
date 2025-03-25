@@ -1,11 +1,9 @@
 import React from 'react';
-import { WellbeingEntry } from '../types/WellbeingEntry';
+import { useWellbeing } from '../context/WellbeingContext';
 
-interface WellbeingListProps {
-  entries: WellbeingEntry[];
-}
+const WellbeingList: React.FC = () => {
+  const { entries } = useWellbeing();
 
-const WellbeingList: React.FC<WellbeingListProps> = ({ entries }) => {
   return (
     <div>
       <h2>Team Wellbeing Entries</h2>

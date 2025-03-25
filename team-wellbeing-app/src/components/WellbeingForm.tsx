@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { WellbeingEntry } from '../types/WellbeingEntry';
+import { useWellbeing } from '../context/WellbeingContext';
 
-interface WellbeingFormProps {
-  onSubmit: (entry: Omit<WellbeingEntry, 'id' | 'date'>) => void;
-}
-
-const WellbeingForm: React.FC<WellbeingFormProps> = ({ onSubmit }) => {
+const WellbeingForm: React.FC = () => {
+  const { addEntry } = useWellbeing();
   const [entry, setEntry] = useState<Omit<WellbeingEntry, 'id' | 'date'>>({
     name: '',
     mood: 'Okay',
@@ -14,7 +12,7 @@ const WellbeingForm: React.FC<WellbeingFormProps> = ({ onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(entry);
+    addEntry(entry);
     setEntry({ name: '', mood: 'Okay', notes: '' }); // Reset form
   };
 
