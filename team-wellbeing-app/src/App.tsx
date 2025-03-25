@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import WellbeingForm from './components/WellbeingForm';
+import WellbeingList from './components/WellbeingList';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       </header>
       <main className="App-main">
         <WellbeingForm />
+        <WellbeingList />
       </main>
     </div>
   );

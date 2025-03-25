@@ -40,6 +40,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 input, select, textarea {
@@ -85,4 +86,31 @@ select {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* WellbeingList styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+li p {
+  margin: 0.5rem 0 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
 }
