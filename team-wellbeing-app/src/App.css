@@ -1,8 +1,15 @@
+/* Custom styles that might be needed alongside Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Any custom styles we might need later can go here */
+
 .App {
   text-align: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
-  padding-bottom: 2rem;
+  background-color: #f0f7ff;
+  padding: 20px;
 }
 
 .App-logo {
@@ -17,84 +24,155 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: transparent;
   padding: 1.5rem;
-  color: white;
+  color: #333;
   margin-bottom: 2rem;
+  text-align: left;
 }
 
 .App-header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .App-main {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /* Form styles */
-form {
+.wellbeing-form {
   background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  width: 100%;
-  box-sizing: border-box;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
 }
 
 input, select, textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  font-size: 1rem;
-  background-color: #fafafa;
-  box-sizing: border-box;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fafafa;
+  transition: all 0.2s ease;
 }
 
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: #0066cc;
-  background-color: white;
+  border-color: #4a90e2;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
 textarea {
-  min-height: 100px;
+  min-height: 80px;
   resize: vertical;
-  font-family: inherit;
 }
 
 button {
-  background-color: #0066cc;
-  color: white;
-  padding: 1rem;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
   width: 100%;
+  padding: 0.75rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 button:hover {
-  background-color: #0052a3;
+  background-color: #357abd;
+  transform: translateY(-1px);
 }
 
-button:active {
-  transform: scale(0.98);
+/* List styles */
+.wellbeing-list {
+  text-align: left;
 }
 
-select {
-  background-color: white;
+h2 {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaeaea;
+}
+
+li strong {
+  color: #333;
+  font-weight: 500;
+}
+
+.entry-date {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+li p {
+  margin: 0.5rem 0 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #e74c3c;
+  background-color: #fdf3f2;
+  border: 1px solid #f9d6d3;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.sign-out-button {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: auto;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid #4a90e2;
+  color: #4a90e2;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.sign-out-button:hover {
+  background-color: #4a90e2;
+  color: white;
 }
 
 .App-link {
@@ -110,65 +188,73 @@ select {
   }
 }
 
-/* WellbeingList styles */
-h2 {
-  margin: 0 0 1.5rem 0;
-  color: #333;
-  font-size: 1.5rem;
-  width: 100%;
-  text-align: left;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
-
-li {
+/* Auth form styles */
+.auth-form {
   background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: left;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  box-sizing: border-box;
+  max-width: 400px;
+  margin: 2rem auto;
 }
 
-li strong {
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.entry-date {
-  font-size: 0.85rem;
-  color: #666;
-  margin-top: 0.5rem;
-}
-
-li p {
-  margin: 0.75rem 0 0;
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.loading, .error {
+.auth-form h2 {
   text-align: center;
-  padding: 2rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
-  width: 100%;
-  box-sizing: border-box;
+  color: #333;
+  font-size: 1.75rem;
+  font-weight: 600;
 }
 
-.error {
-  color: #dc3545;
-  border: 1px solid #dc3545;
+.auth-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-form button[type="submit"] {
+  background-color: #0066cc;
+  color: white;
+}
+
+.auth-form button[type="submit"]:hover {
+  background-color: #0052a3;
+  transform: translateY(-1px);
+}
+
+.auth-form button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.switch-auth-mode {
+  background: none;
+  color: #0066cc;
+  text-decoration: underline;
+  padding: 0.5rem;
+  font-weight: normal;
+}
+
+.switch-auth-mode:hover {
+  color: #0052a3;
+  background-color: #f5f5f5;
+  text-decoration: none;
 }
