@@ -1,20 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": { "maxLambdaSize": "50mb" }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ],
-  "env": {
-    "REACT_APP_SUPABASE_URL": "@react_app_supabase_url",
-    "REACT_APP_SUPABASE_ANON_KEY": "@react_app_supabase_anon_key"
-  }
+  "buildCommand": "CI=false npm run build",
+  "installCommand": "npm install",
+  "framework": "create-react-app",
+  "outputDirectory": "build"
 } 
