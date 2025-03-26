@@ -1,193 +1,166 @@
-# Wellbeing Tracker - Enterprise Full-Stack Application
+# Team Wellbeing App
 
 ## Introduction
-The Wellbeing Tracker is an enterprise-grade application designed to help users monitor and manage their mental health and wellbeing. This full-stack solution provides a secure, scalable platform for users to track their daily mental health status, mood patterns, and personal reflections.
+The Team Wellbeing App is a modern application designed to help teams monitor and manage their collective mental health and wellbeing. This full-stack solution provides a secure, user-friendly platform for team members to track their daily mental health status, identify patterns, and promote a supportive work environment.
 
 ## Solution Overview
-The application implements a three-tier architecture:
-- **Frontend**: React-based responsive UI with real-time updates
-- **Middleware**: RESTful API service layer with Express.js
-- **Backend**: Supabase
+The application implements a modern web architecture:
+- **Frontend**: React with TypeScript and Tailwind CSS for responsive UI
+- **Backend**: Supabase for authentication, database, and real-time features
+- **Deployment**: vercel with automated deployment
 
 ## Project Aim & Objectives
 
 ### Main Goal
-To provide a secure and scalable platform for users to track and manage their mental wellbeing while maintaining data privacy and ensuring high performance.
+To provide a secure and intuitive platform for team members to track and share their wellbeing data, fostering a culture of support and mental health awareness.
 
 ### Key Objectives
-1. Implement secure user authentication and authorization
-2. Enable real-time data updates and synchronization
-3. Ensure data privacy and GDPR compliance
-4. Provide an intuitive, responsive user interface
-5. Maintain high performance and scalability
+1. Implement secure user authentication with Supabase Auth
+2. Enable real-time wellbeing data tracking and visualization
+3. Ensure data privacy and protection of sensitive information
+4. Provide an intuitive, responsive user interface with Tailwind CSS
+5. Create a scalable application architecture
 
-## Enterprise Considerations
+## Technical Considerations
 
 ### Performance
-- Implemented React.lazy() for code splitting
-- Optimized database queries with proper indexing
-- Added Redis caching layer for frequently accessed data
-- Utilized CDN for static asset delivery
-- Implemented client-side caching strategies
+- Component-based architecture with React
+- Optimized Supabase queries
+- Efficient state management
+- Responsive design for all device sizes
 
 ### Scalability
-- Horizontally scalable architecture
-- Containerized deployment with Docker
-- Load balancing configuration
-- Database sharding capability
-- Microservices-ready architecture
-
-### Robustness
-- Comprehensive error handling
-- Automatic retry mechanisms for failed operations
-- Graceful degradation strategies
-- Data validation at all layers
-- Automated backup systems
+- Leveraging Supabase's PostgreSQL database
+- Modular component structure
+- Reusable UI components
+- Separation of concerns in code organization
 
 ### Security
-- JWT-based authentication
-- Password hashing using bcrypt
-- CSRF protection
-- XSS prevention
-- Rate limiting
-- Input sanitization
-- Data encryption at rest and in transit
+- JWT-based authentication with Supabase
+- Row-level security in database
+- Input validation and sanitization
+- Secure environment variable management
 
-### Deployment
-- Hosted on AWS (or your chosen platform)
-- CI/CD pipeline with GitHub Actions
-- Environment-specific configurations
-- Automated testing before deployment
-- Zero-downtime deployment strategy
+### Code Structure
+- `/src/components`: Reusable UI components
+- `/src/context`: Application context providers
+- `/src/hooks`: Custom React hooks
+- `/src/types`: TypeScript type definitions
+- `/src/utils`: Utility functions
 
-## Installation & Usage Instructions
+## Main Components
+
+### User Authentication
+- Location: `/src/components/Auth`
+- Integration with Supabase Auth
+- Login/signup functionality
+- Session management
+
+### Wellbeing Form
+- Location: `/src/components/WellbeingForm`
+- Daily wellbeing tracking
+- Mood and sentiment recording
+- Personal notes and reflections
+
+### Wellbeing List
+- Location: `/src/components/WellbeingList`
+- Historical wellbeing data display
+- Data filtering and sorting
+- Team-wide insights (for authorized users)
+
+### Supabase Context
+- Location: `/src/context/SupabaseContext`
+- Centralized Supabase client management
+- Authentication state management
+- Database access methods
+
+## Feature Overview
+
+### User Management
+- Secure authentication
+- User profiles
+- Role-based permissions
+
+### Wellbeing Tracking
+- Daily mood tracking
+- Sentiment analysis
+- Trend visualization
+
+### Team Insights
+- Aggregated wellbeing metrics
+- Anonymized team reporting
+- Historical data analysis
+
+## Future Enhancements
+
+### Planned Improvements
+- Advanced analytics dashboard
+- Team-wide notifications
+- Calendar integration
+- Custom reporting features
+- Mobile-optimized experience
+
+## Technical Stack
+
+### Frontend
+- React with TypeScript
+- Tailwind CSS for styling
+- React hooks for state management
+- Jest for testing
+
+### Backend
+- Supabase for authentication
+- PostgreSQL database (via Supabase)
+- Supabase realtime subscriptions
+- Row-level security policies
+
+## Getting Started
 
 ### Prerequisites
 - Node.js (v14 or higher)
-- MongoDB (v4.4 or higher)
-- Redis (v6 or higher)
 - npm or yarn package manager
+- Supabase account and project
 
 ### Setup Steps
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/wellbeing-tracker.git
-cd wellbeing-tracker
-```
+git clone https://github.com/martinscorsese01/team-well-being-app.git
+cd team-well-being-app
 
-2. Install dependencies:
-```bash
-# Install frontend dependencies
-cd frontend
-npm install
+Install dependencies:
 
-# Install backend dependencies
-cd ../backend
-npm install
-```
+bashCopynpm install
 
-3. Configure environment variables:
-```bash
-# Create .env files in frontend and backend directories
-cp .env.example .env
-```
+Configure environment variables:
 
-4. Set up the database:
-```bash
-npm run db:setup
-```
+bashCopy# Create .env.local file with Supabase credentials
+REACT_APP_SUPABASE_URL=your-supabase-url
+REACT_APP_SUPABASE_ANON_KEY=your-supabase-anon-key
 
-### Running the Application
-1. Start the backend server:
-```bash
-cd backend
-npm run dev
-```
+Start the development server:
 
-2. Start the frontend application:
-```bash
-cd frontend
-npm start
-```
+bashCopynpm start
+Database Schema
+Users Table
 
-## Feature Overview
+Managed by Supabase Auth
 
-### User Authentication
-- Location: `/src/components/Auth`
-- Secure login/signup system
-- Password reset functionality
-- Session management
+Wellbeing Entries
 
-### Wellbeing Tracking
-- Location: `/src/components/WellbeingForm`
-- Daily mood tracking
-- Journal entries
-- Progress visualization
+id: UUID (primary key)
+user_id: UUID (foreign key to auth.users)
+date: Date
+mood_score: Integer (1-10)
+notes: Text
+created_at: Timestamp
+updated_at: Timestamp
 
-### Data Analytics
-- Location: `/src/components/Analytics`
-- Mood patterns analysis
-- Progress reports
-- Data export capabilities
+Testing Strategy
 
-### Real-time Updates
-- Location: `/src/services/realtime`
-- WebSocket integration
-- Live data synchronization
-- Push notifications
+Unit tests with Jest
+Component tests with React Testing Library
+Integration tests for critical flows
+Accessibility testing
 
-## Known Issues & Future Enhancements
-
-### Current Limitations
-- Limited offline functionality
-- Basic analytics features
-- Single language support
-
-### Planned Improvements
-- Progressive Web App (PWA) implementation
-- Advanced analytics dashboard
-- Multi-language support
-- Mobile application
-- Integration with wearable devices
-
-## Technical Architecture
-
-### Frontend
-- React.js with TypeScript
-- Redux for state management
-- Tailwind CSS for styling
-- Jest for testing
-
-### Middleware
-- Express.js RESTful API
-- GraphQL API (planned)
-- WebSocket server
-- Rate limiting and caching
-
-### Backend
-- MongoDB database
-- Redis caching layer
-- JWT authentication
-- Automated backups
-
-## Testing Strategy
-- Unit tests with Jest
-- Integration tests with Supertest
-- E2E tests with Cypress
-- Performance testing with k6
-- Security testing with OWASP ZAP
-
-## References
-- React Documentation
-- MongoDB Best Practices
-- OWASP Security Guidelines
-- AWS Documentation
-- Express.js Security Best Practices
-
-## License
+License
 MIT License
-
----
-
-For detailed API documentation, please refer to the `/docs` directory.
-For contribution guidelines, please see CONTRIBUTING.md.
