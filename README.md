@@ -7,7 +7,7 @@ The Wellbeing Tracker is an enterprise-grade application designed to help users 
 The application implements a three-tier architecture:
 - **Frontend**: React-based responsive UI with real-time updates
 - **Middleware**: RESTful API service layer with Express.js
-- **Backend**: MongoDB database with mongoose ODM
+- **Backend**: Supabase
 
 ## Project Aim & Objectives
 
