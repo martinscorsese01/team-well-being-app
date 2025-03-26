@@ -16,7 +16,7 @@ To provide a secure and intuitive platform for team members to track and share t
 
 ### Key Objectives
 1. Implement secure user authentication with Supabase Auth
-2. Enable real-time wellbeing data tracking and visualization
+2. Enable real-time wellbeing data tracking 
 3. Ensure data privacy and protection of sensitive information
 4. Provide an intuitive, responsive user interface with Tailwind CSS
 5. Create a scalable application architecture
@@ -79,17 +79,10 @@ To provide a secure and intuitive platform for team members to track and share t
 ### User Management
 - Secure authentication
 - User profiles
-- Role-based permissions
 
 ### Wellbeing Tracking
 - Daily mood tracking
 - Sentiment analysis
-- Trend visualization
-
-### Team Insights
-- Aggregated wellbeing metrics
-- Anonymized team reporting
-- Historical data analysis
 
 ## Future Enhancements
 
@@ -156,8 +149,6 @@ created_at: Timestamp
 updated_at: Timestamp
 
 Testing Strategy
-
-Unit tests with Jest
 Component tests with React Testing Library
 Integration tests for critical flows
 Accessibility testing
